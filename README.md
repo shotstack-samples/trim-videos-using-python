@@ -1,6 +1,6 @@
 # Trim and merge videos using Python
 
-This repository is the code for [Python trim and merge videos](https://shotstack.io/learn/python-trim-merge-videos/?utm_source=github&utm_campaign=sample_repos) tutorial using the [Shotstack API](https://shotstack.io/product/video-editing-api/?utm_campaign=sample_repos).
+This repository is the code for [Python trim videos](https://shotstack.io/learn/trim-videos-using-python/?utm_source=github&utm_campaign=sample_repos) tutorial using the [Shotstack API](https://shotstack.io/product/video-editing-api/?utm_campaign=sample_repos).
 
 
 ### What is Shotstack API?
@@ -55,7 +55,7 @@ Replace `your_key_here` with your provided sandbox API key which is free for t
 
 ### Running the scripts
 
-There are three Python scripts in this repository. First is the `trim-videos.py` that trims a video. Second is the `merge-videos.py` file that merges two videos. Third is the `video-effects.py` file that adds transitions, motion effects, and a background music to the videos.
+There are two Python scripts in this repository. First is the `trim-video.py` that trims a single video. Second is the `trim-videos.py` file that trims multiple videos from a list of videos. 
 
 ### Checking render status
 

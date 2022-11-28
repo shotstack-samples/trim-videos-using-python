@@ -1,4 +1,3 @@
-
 import shotstack_sdk as shotstack
 import os
 import sys
@@ -12,37 +11,27 @@ from shotstack_sdk.model.edit import Edit
 from shotstack_sdk.model.video_asset import VideoAsset
 
 if __name__ == "__main__":
-    host = "https://api.shotstack.io/v1"
+    host = "https://api.shotstack.io/stage"
 
     configuration = shotstack.Configuration(host = host)
 
-    configuration.api_key['DeveloperKey'] = os.getenv("SHOTSTACK_PROD_KEY")
+    configuration.api_key['DeveloperKey'] = os.getenv("SHOTSTACK_KEY")
     
     with shotstack.ApiClient(configuration) as api_client:
         api_instance = edit_api.EditApi(api_client)
 
-        video_urls = ['https://cdn.shotstack.io/au/v1/62hne3bb81/a7508c53-aaa7-4d16-9c8b-795b8042de3b.mp4',
-                       'https://cdn.shotstack.io/au/v1/62hne3bb81/5e75c6e0-3c5c-408c-bcaf-04c27fa9aa9b.mp4'
-                       
-        ]
+        video_asset = VideoAsset(
+            src = "https://d1uej6xx5jo4cd.cloudfront.net/skater.hd.mp4",
+            trim = 3.0
+        )
         
-        clips  = []
-        start  = 0.0
-        length = 5.0
-
-        for video in video_urls:
-            video_asset = VideoAsset(src = video)
-
-            clip    = Clip(
-                asset   = video_asset,
-                start   = start,
-                length  = length
-            )
-
-            start = start + length
-            clips.append(clip)
-
-        track = Track(clips = clips)
+        video_clip = Clip(
+            asset = video_asset,
+            start = 0.0,
+            length = 8.0
+        )
+        
+        track = Track(clips=[video_clip])
 
         timeline = Timeline(
             background = "#000000",
